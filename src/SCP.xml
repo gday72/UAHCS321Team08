@@ -1,0 +1,31 @@
+<?xml version='1.0'?>
+<Story>
+	<Title></Title>
+	<Player>
+		<Attributes>
+		</Attributes>
+		<Items>
+		</Items>
+	</Player>
+	<Chapter id="">
+		<!-- Branchpoint indicates which path, 0 for no branch, 1+ for branchID -->
+		<Scene id="" branchpoint="#">
+			<Title></Title>
+			<Background></Background>
+			<Button id="">
+				<XPos></XPos>
+				<YPos></YPos>
+				<Width></Width>
+				<Height><Height>
+				<Action></Action>
+			</Button>
+			<Text></Text>
+			<Enemy>
+				<Attributes>
+				</Attributes>
+				<Items>
+				</Items>
+			</Enemy>
+		</Scene>
+	</Chapter>
+</Story>
