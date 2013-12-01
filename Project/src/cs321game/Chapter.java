@@ -12,6 +12,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
 /**
  *
@@ -19,9 +22,12 @@ import java.util.List;
  */
 public class Chapter implements Display {
 
-    List<Scene> scenes;
+    private List<Scene> scenes;
+    private JPanel m_Scenes;
+    
 
     public Chapter() {
+        m_Scenes = new JPanel(new CardLayout());
         scenes = new ArrayList<>();
     }
 
@@ -33,7 +39,7 @@ public class Chapter implements Display {
         return scenes;
     }
 
-    public void buildChapterFromFiles() {
+/*    public void buildChapterFromFiles() {
         //This will be a problem!!!
         File folder = new File(System.getProperty("user.dir") + "/scenes/");
         File[] listOfFiles = folder.listFiles();
@@ -103,5 +109,5 @@ public class Chapter implements Display {
             }
         }
         return sb.toString();
-    }
+    }*/
 }
