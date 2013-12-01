@@ -24,6 +24,7 @@ public class Story implements Display {
     private List<Chapter> chapters;
     private List<JPanel> m_Story;
     private List<Integer> m_UID;
+    private Avatar m_Player;
     private int m_Branching;
     
     public Story (){
@@ -62,6 +63,10 @@ public class Story implements Display {
             }
         }
         
+    }
+    
+    public void addChapter(Chapter c){
+        chapters.add(c);
     }
     
     public List<Chapter> getChapters() {
