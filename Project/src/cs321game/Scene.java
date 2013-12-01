@@ -6,6 +6,8 @@
 
 package cs321game;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author yeyande
@@ -13,6 +15,7 @@ package cs321game;
 public class Scene implements Display {
 
     private String name, content;
+    private JPanel m_ScenePanel;
 
     public Scene(String n, String c) {
         name = n;
@@ -49,5 +52,9 @@ public class Scene implements Display {
      */
     public void setContent(String content) {
         this.content = content;
+    }
+    
+    public JPanel getPanel() {
+        return m_ScenePanel;
     }
 }
