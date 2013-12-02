@@ -31,11 +31,14 @@ public class Scene {
     /**
      * @return the name
      */
-    public String getText() {
+    public String GetText() {
         return m_Text;
     }
     
-    public JPanel getPanel() {
+    public JPanel GetPanel() {
         return m_ScenePanel;
+    }
+    public int GetUID(){
+        return m_UID;
     }
 }

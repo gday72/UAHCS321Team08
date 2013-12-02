@@ -11,5 +11,47 @@ package cs321game;
  * @author yeyande
  */
 public class StoryTree {
+    private StoryNode m_Root;
     
+    public StoryTree(){
+        
+    }
+    
+    public void AddNode(StoryNode left, StoryNode right){
+        StoryNode temp = m_Root;
+        StoryNode back = null;
+        if (temp == null)
+        {
+            m_Root = left;
+            m_Root.m_Right = right;
+        }
+        else
+        {
+            while (temp != null)
+            {
+                back = temp;
+                if (temp.getScene().GetUID() > left.getScene().GetUID())
+                {
+                    temp = temp.m_Left;
+                }
+                else
+                {
+                    temp = temp.m_Right;
+                }
+            }
+            if (temp == null)
+            {
+                
+            }
+        }
+        
+    }
+    
+    public void AddNode(StoryNode left){
+        this.AddNode(left, null);
+    }
+    
+    public void DeleteNode(int UID){
+        
+    }
 }

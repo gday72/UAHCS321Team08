@@ -19,13 +19,6 @@ public class StoryNode {
         
     }
     
-    public void AddNode(StoryNode left, StoryNode right){
-        
-    }
-    
-    public void AddNode(StoryNode left){
-        this.AddNode(left, null);
-    }
     public Scene getScene(){
         return m_Node;
     }

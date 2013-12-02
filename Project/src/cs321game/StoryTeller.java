@@ -45,7 +45,7 @@ public class StoryTeller {
                 //for (m_SceneCount = 0; m_SceneCount < m_ScenesList.size(); m_SceneCount++)  // Iterate through the list
                 for (Scene Scene: m_ScenesList)
                 {   
-                    m_Scenes.add(Scene.getPanel());    // Add the panels to the scenes panel
+                    m_Scenes.add(Scene.GetPanel());    // Add the panels to the scenes panel
                 }
             }
             /* 
