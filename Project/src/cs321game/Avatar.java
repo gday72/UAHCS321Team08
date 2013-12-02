@@ -6,10 +6,27 @@
 
 package cs321game;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author yeyande
  */
-public class Avatar {
+public class Avatar 
+{
+     /* 
+     * Basic attributes for every avatar in the game.
+     */
+   
+    ArrayList<Item> inventory = new ArrayList<>();
+
+    public Avatar() 
+    {
+        
+    }
     
+   /* public void Move()
+    {
+        System.out.println("You just moved your character!");
+    }*/
 }
