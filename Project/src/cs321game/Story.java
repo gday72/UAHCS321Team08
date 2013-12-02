@@ -20,7 +20,7 @@ import javax.swing.JPanel;
  *      Provide a way to navigate through the story
  *      Provide story branching capabilities 
  */
-public class Story implements Display {
+public class Story {
     private List<Chapter> chapters;
     private List<JPanel> m_Story;
     private List<Integer> m_UID;

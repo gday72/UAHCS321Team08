@@ -20,7 +20,7 @@ import javax.swing.*;
  *
  * @author yeyande
  */
-public class Chapter implements Display {
+public class Chapter {
 
     private List<Scene> scenes;
     private JPanel m_Scenes;
