@@ -12,46 +12,27 @@ import javax.swing.JPanel;
  *
  * @author yeyande
  */
-public class Scene implements Display {
+public class Scene {
 
-    private String name, content;
+    private String m_Text;
+    private int m_UID;  
     private JPanel m_ScenePanel;
 
-    public Scene(String n, String c) {
-        name = n;
-        content = c;
+    public Scene(JPanel ScenePanel, String Text, int UID) {
+        m_ScenePanel = ScenePanel;
+        m_Text = Text;
+        m_UID = UID;
     }
 
     public Scene() {
-        this("none", "empty");
+        this(null, "empty", 0);
     }
 
     /**
      * @return the name
      */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * @param name the name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * @return the content
-     */
-    public String getContent() {
-        return content;
-    }
-
-    /**
-     * @param content the content to set
-     */
-    public void setContent(String content) {
-        this.content = content;
+    public String getText() {
+        return m_Text;
     }
     
     public JPanel getPanel() {

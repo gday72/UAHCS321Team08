@@ -28,7 +28,8 @@ public class StoryTeller {
     */
     public StoryTeller() {
         this.ParseXML();                                                        // This parses the XML file into a list of a story
-        //for (m_StoryBranchNumber = 0; m_StoryBranchNumber < m_MaxBranches; m_StoryBranchNumber++)
+        // Parse the tree that is loaded from the XML file
+        
         for (Story Story : m_StoryBranches)
         {
             m_StoryBoard = new JPanel(new CardLayout());                        // Init the main card layout
@@ -48,8 +49,8 @@ public class StoryTeller {
                 }
             }
             /* 
-            *  StoryBoard -> Avatar
-            *             -> Items
+            *  StoryBoard -> Items
+            *             -> Text
             *             -> Scenes -> Individual Scenes
             * So,
             * m_Scenes = new JPanel(new CardLayout());

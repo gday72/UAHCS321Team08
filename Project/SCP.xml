@@ -16,9 +16,6 @@
 				<Action></Action>
 			</Button>
 			<Text></Text>
-			<Enemy>
-				<!-- WHAT THE FUCK DO WE PUT HERE -->
-			</Enemy>
 		</Scene>
 	</Chapter>
 </Story>
