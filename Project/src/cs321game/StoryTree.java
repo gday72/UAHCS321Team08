@@ -6,6 +6,9 @@
 
 package cs321game;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 /**
  *
  * @author yeyande
@@ -30,7 +33,7 @@ public class StoryTree {
             while (temp != null)
             {
                 back = temp;
-                if (temp.getScene().GetUID() > left.getScene().GetUID())
+                if (temp.GetScene().GetUID() > left.GetScene().GetUID())
                 {
                     temp = temp.m_Left;
                 }
@@ -39,10 +42,8 @@ public class StoryTree {
                     temp = temp.m_Right;
                 }
             }
-            if (temp == null)
-            {
-                
-            }
+            back.m_Left = left;
+            back.m_Right = right;
         }
         
     }
@@ -52,6 +53,30 @@ public class StoryTree {
     }
     
     public void DeleteNode(int UID){
-        
+        StoryNode temp = m_Root;
+        StoryNode back = null;
+        while (temp != null && temp.GetScene().GetUID() != UID)
+        {
+            back = temp;
+            if (temp.GetScene().GetUID() > UID)
+            {
+                temp = temp.m_Left;
+            }
+            else
+            {
+                temp = temp.m_Right;
+            }
+            if (temp != null)
+            {
+                if (back.m_Left == temp)
+                {
+                    back.m_Left = null;
+                }
+                else
+                {
+                    back.m_Right = null;
+                }
+            }
+        }
     }
 }

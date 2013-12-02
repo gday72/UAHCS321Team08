@@ -19,7 +19,7 @@ public class StoryNode {
         
     }
     
-    public Scene getScene(){
+    public Scene GetScene(){
         return m_Node;
     }
 }
