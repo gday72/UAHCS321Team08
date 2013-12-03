@@ -9,7 +9,17 @@ package cs321game;
 import java.awt.*;
 import java.io.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 /**
  *
  * @author yeyande
@@ -19,7 +29,48 @@ public class StoryTeller {
       
   }  
   private void ParseXML(File Story){
-      // This will parse an XML file and build a StoryTree out of it!
+      try {
+          // This will parse an XML file and build a StoryTree out of it!
+          DocumentBuilderFactory DocFactory = DocumentBuilderFactory.newInstance();
+          DocumentBuilder DocBuilder = DocFactory.newDocumentBuilder();
+          Document Doc = DocBuilder.parse(Story);
+          Doc.getDocumentElement().normalize();
+          NodeList SceneList = Doc.getElementsByTagName("Scene");
+          
+          for (int temp = 0; temp < SceneList.getLength(); temp++)
+          {
+              Node SceneNode = SceneList.item(temp);
+              if (SceneNode.getNodeType() == Node.ELEMENT_NODE) 
+              {
+                  Element Scene = (Element) SceneNode;
+                  int Scene_UID = Integer.parseInt(Scene.getAttribute("id"));
+                  int Branch = Integer.parseInt(Scene.getAttribute("branchpoint"));
+                  String Background = Scene.getElementsByTagName("Background").item(0).getTextContent();
+                  NodeList ButtonList = Scene.getElementsByTagName("Button");
+                  String Text = Scene.getElementsByTagName("Text").item(0).getTextContent();
+                  
+                  for (int i = 0; i < ButtonList.getLength(); i++)
+                  {
+                      Node ButtonNode = ButtonList.item(i);
+                      if (ButtonNode.getNodeType() == Node.ELEMENT_NODE)
+                      {
+                          Element Button = (Element) ButtonList;
+                          int Button_UID = Integer.parseInt(Button.getAttribute("id"));
+                          int Button_XPos = Integer.parseInt(Button.getElementsByTagName("XPos").item(0).getTextContent());
+                          int Button_YPos = Integer.parseInt(Button.getElementsByTagName("YPos").item(0).getTextContent());
+                          int Button_Width = Integer.parseInt(Button.getElementsByTagName("Width").item(0).getTextContent());
+                          int Button_Height = Integer.parseInt(Button.getElementsByTagName("Height").item(0).getTextContent());
+                          Button.getElementsByTagName("Action").item(0).getTextContent();
+                      }
+                      
+                  }
+              }
+          }
+      } catch (Exception e) {
+          e.printStackTrace();
+      }
+      
+      
   }
   public void Storybuild(StoryTree Story){
       // This will take a StoryTree and build
