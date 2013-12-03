@@ -1,14 +1,28 @@
 <?xml version='1.0'?>
 <Story>
-	<Player name="">
-		<Items>
-		</Items>
+	<Player>
+		<!--  Just put in the name of the item here -->
+		<Item></Item>
 	</Player>
-	<Chapter id="">
+	<Chapter>
+		<!-- Number the scenes as so:
+			01
+			|
+			02
+		       /  \
+        Branchpoint=1 03   04 Branchpoint=2
+		      |	   |
+		     05    06
+                          /  \
+	   Branchpoint=1 07  08 Branchpoint=2
+					  -->
 		<!-- Branchpoint indicates which path, 0 for no branch, 1+ for branchID -->
-		<Scene id="" branchpoint="#">
+		<Scene id="#" branchpoint="#">
+			<!-- Give a string to the path of the background, IE: resources/path/to/file.jpg -->
 			<Background></Background>
+			<!-- Create buttons for each scene -->
 			<Button>
+				<!-- Here is for where the buttons should be, put numbers here-->
 				<XPos></XPos>
 				<YPos></YPos>
 				<Width></Width>
@@ -18,10 +32,11 @@
 					BRANCHUP
 					BRANCHDOWN
 					PICKUPITEM
-					USEITEM						-->
+					USEITEM			-->
 				<Action></Action>
 				<SceneItem></SceneItem>
 			</Button>
+			<!-- Here is the text for each scene -->
 			<Text></Text>
 		</Scene>
 	</Chapter>
