@@ -19,6 +19,10 @@ public class StoryNode {
         
     }
     
+    public StoryNode(Scene Node){
+        m_Node = Node;
+    }
+    
     public Scene GetScene(){
         return m_Node;
     }

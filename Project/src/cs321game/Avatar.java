@@ -35,7 +35,7 @@ public class Avatar
     {
         inventory.add(i);
         int index = inventory.indexOf(i);
-        System.out.println("You just picked up a " + inventory.get(index).m_sItemName +"!");
+        System.out.println("You just picked up a " + inventory.get(index).GetItem() +"!");
         System.out.println("You have " + inventory.size() + " items in your inventory!");
     }
     
@@ -49,12 +49,12 @@ public class Avatar
         if(inventory.contains(i))
         {
             inventory.remove(i);
-            System.out.println("You just dropped a " + i.m_sItemName + "!");
+            System.out.println("You just dropped a " + i.GetItem() + "!");
             System.out.println("You have " + inventory.size() + " items in your inventory!");
         }
         else
         {
-            System.out.println("You do not have " + i.m_sItemName + " in your inventory!");
+            System.out.println("You do not have " + i.GetItem() + " in your inventory!");
         }
     }
     
@@ -67,7 +67,7 @@ public class Avatar
         
         while(iter.hasNext() == true)
         {
-            System.out.println(iter.next().m_sItemName);
+            System.out.println(iter.next().GetItem());
         }
     }   
 }

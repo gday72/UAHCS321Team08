@@ -8,12 +8,19 @@
 		<!-- Branchpoint indicates which path, 0 for no branch, 1+ for branchID -->
 		<Scene id="" branchpoint="#">
 			<Background></Background>
-			<Button id="">
+			<Button>
 				<XPos></XPos>
 				<YPos></YPos>
 				<Width></Width>
 				<Height><Height>
+				<!-- Possible Actions here are : 
+					NEXTSCENE
+					BRANCHUP
+					BRANCHDOWN
+					PICKUPITEM
+					USEITEM						-->
 				<Action></Action>
+				<SceneItem></SceneItem>
 			</Button>
 			<Text></Text>
 		</Scene>

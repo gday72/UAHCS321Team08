@@ -25,6 +25,9 @@ import org.xml.sax.SAXException;
  * @author yeyande
  */
 public class StoryTeller {
+    private Avatar m_Player;
+    private StoryTree m_StoryTree;
+    
   public StoryTeller(){
       
   }  
@@ -36,34 +39,88 @@ public class StoryTeller {
           Document Doc = DocBuilder.parse(Story);
           Doc.getDocumentElement().normalize();
           NodeList SceneList = Doc.getElementsByTagName("Scene");
-          
+          Scene SceneData;
+          JPanel ScenePanel;
+          JButton SceneButton;
+          m_StoryTree = new StoryTree();
+          StoryNode SceneTreeNode, SecondTreeNode;
           for (int temp = 0; temp < SceneList.getLength(); temp++)
           {
+              
               Node SceneNode = SceneList.item(temp);
               if (SceneNode.getNodeType() == Node.ELEMENT_NODE) 
               {
                   Element Scene = (Element) SceneNode;
                   int Scene_UID = Integer.parseInt(Scene.getAttribute("id"));
-                  int Branch = Integer.parseInt(Scene.getAttribute("branchpoint"));
-                  String Background = Scene.getElementsByTagName("Background").item(0).getTextContent();
+                  int Scene_Branch = Integer.parseInt(Scene.getAttribute("branchpoint"));
+                  String Scene_Background = Scene.getElementsByTagName("Background").item(0).getTextContent();
+                  String Scene_Text = Scene.getElementsByTagName("Text").item(0).getTextContent();
                   NodeList ButtonList = Scene.getElementsByTagName("Button");
-                  String Text = Scene.getElementsByTagName("Text").item(0).getTextContent();
                   
+                  
+                  ScenePanel = new JPanel();
+                  ScenePanel.setLayout(null);
                   for (int i = 0; i < ButtonList.getLength(); i++)
                   {
                       Node ButtonNode = ButtonList.item(i);
                       if (ButtonNode.getNodeType() == Node.ELEMENT_NODE)
-                      {
+                      {                          
                           Element Button = (Element) ButtonList;
                           int Button_UID = Integer.parseInt(Button.getAttribute("id"));
                           int Button_XPos = Integer.parseInt(Button.getElementsByTagName("XPos").item(0).getTextContent());
                           int Button_YPos = Integer.parseInt(Button.getElementsByTagName("YPos").item(0).getTextContent());
                           int Button_Width = Integer.parseInt(Button.getElementsByTagName("Width").item(0).getTextContent());
                           int Button_Height = Integer.parseInt(Button.getElementsByTagName("Height").item(0).getTextContent());
-                          Button.getElementsByTagName("Action").item(0).getTextContent();
+                          Item Button_Item = new Item(Button.getElementsByTagName("SceneItem").item(0).getTextContent());
+                          String Action = Button.getElementsByTagName("Action").item(0).getTextContent();
+                          
+                          SceneButton = new JButton();
+                          
+                          // NEED TO FINISH THIS. NOT SURE HOW...
+                          switch(Action)
+                          {
+                              case "NEXTSCENE":
+                                  SceneButton.setAction();
+                                  break;
+                              case "BRANCHUP":
+                                  SceneButton.setAction();
+                                  break;
+                              case "BRANCHDOWN":
+                                  SceneButton.setAction();
+                                  break;
+                              case "PICKUPITEM":
+                                  SceneButton.setAction(m_Player.PickUpItem(Button_Item));
+                                  break;
+                              case "USEITEM":
+                                  SceneButton.setAction(m_Player.UseItem(Button_Item));
+                                  break;
+                              default:
+                                  break;
+                          }
+                          ScenePanel.add(SceneButton);
+                          SceneButton.setBounds(Button_XPos, Button_YPos, Button_Width, Button_Height);
                       }
                       
                   }
+                  SceneData = new Scene(ScenePanel, Scene_Text, Scene_UID, Scene_Branch);
+                  SceneTreeNode = new StoryNode(SceneData);
+                  if (Scene_Branch == 0)
+                  {
+                      
+                      m_StoryTree.AddNode(SceneTreeNode);
+                  }
+                  else
+                  {
+                      if (SceneTreeNode.GetScene().GetBranch() == 1)
+                      {
+                          SecondTreeNode = SceneTreeNode;
+                      }
+                      else
+                      {
+                          m_StoryTree.AddNode(SecondTreeNode, SceneTreeNode);
+                      }
+                  }
+                   
               }
           }
       } catch (Exception e) {

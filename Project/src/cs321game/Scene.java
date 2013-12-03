@@ -15,17 +15,18 @@ import javax.swing.JPanel;
 public class Scene {
 
     private String m_Text;
-    private int m_UID;  
+    private int m_UID, m_Branch;  
     private JPanel m_ScenePanel;
 
-    public Scene(JPanel ScenePanel, String Text, int UID) {
+    public Scene(JPanel ScenePanel, String Text, int UID, int Branch) {
         m_ScenePanel = ScenePanel;
         m_Text = Text;
         m_UID = UID;
+        m_Branch = Branch;
     }
 
     public Scene() {
-        this(null, "empty", 0);
+        this(null, "empty", 0, 0);
     }
 
     /**
@@ -40,5 +41,8 @@ public class Scene {
     }
     public int GetUID(){
         return m_UID;
+    }
+    public int GetBranch(){
+        return m_Branch;
     }
 }

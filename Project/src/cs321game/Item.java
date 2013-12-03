@@ -10,5 +10,17 @@ package cs321game;
  */
 public class Item 
 {
-     String m_sItemName;
+     private String m_sItemName;
+     
+     public Item() {
+         m_sItemName = "none";
+     }
+     
+     public Item(String Name) {
+         m_sItemName = Name;
+     }
+     
+     public String GetItem(){
+         return m_sItemName;
+     }
 }
