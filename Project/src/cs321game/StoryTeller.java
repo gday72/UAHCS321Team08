@@ -129,8 +129,10 @@ public class StoryTeller {
       
       
   }
+  
   public void Storybuild(StoryTree Story){
-      // This will take a StoryTree and build
+      // This will take a StoryTree and build the Scene Cards from it
+      
   }
   public void BeginStory(){
       // This will initialize the main JPanel Story

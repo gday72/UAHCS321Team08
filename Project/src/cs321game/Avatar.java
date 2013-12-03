@@ -19,11 +19,11 @@ public class Avatar
      * Basic attributes for every avatar in the game.
      */
    
-    ArrayList<Item> inventory = new ArrayList<>();
+    private ArrayList<Item> m_Inventory;
 
     public Avatar() 
     {
-        
+        m_Inventory = new ArrayList<>();
     }
     
    /* public void Move()
@@ -33,8 +33,8 @@ public class Avatar
     
      public void PickUpItem(Item i)
     {
-        inventory.add(i);
-        int index = inventory.indexOf(i);
+        m_Inventory.add(i);
+        int index = m_Inventory.indexOf(i);
         System.out.println("You just picked up a " + inventory.get(index).GetItem() +"!");
         System.out.println("You have " + inventory.size() + " items in your inventory!");
     }
