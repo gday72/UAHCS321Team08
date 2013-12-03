@@ -6,9 +6,6 @@
 
 package cs321game;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-
 /**
  *
  * @author yeyande
@@ -18,6 +15,10 @@ public class StoryTree {
     
     public StoryTree(){
         
+    }
+    
+    public StoryTree(StoryNode rt){
+        m_Root = rt;
     }
     
     public void AddNode(StoryNode left, StoryNode right){

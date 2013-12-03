@@ -6,15 +6,36 @@
 
 package cs321game;
 
-import java.awt.CardLayout;
-import java.util.ArrayList;
-import java.util.List;
-import javax.swing.JPanel;
+import java.awt.*;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
 /**
  *
  * @author yeyande
  */
 public class StoryTeller {
+  public StoryTeller(){
+      
+  }  
+  private void ParseXML(File Story){
+      // This will parse an XML file and build a StoryTree out of it!
+  }
+  public void Storybuild(StoryTree Story){
+      // This will take a StoryTree and build
+  }
+  public void BeginStory(){
+      // This will initialize the main JPanel Story
+  }
+  public void StopStory(){
+      // This will Stop and Save the story
+  }
+  public void BranchStory(){
+      // This wil rebuild the Scene cards and reload them into the JPanel
+  }
+  
+}
+/*public class StoryTeller {
     private List<Story> m_StoryBranches;                                        // Here's our story possibilites
     private List<Chapter> m_ChaptersList;                                       // A list of chapters for building
     private List<Scene> m_ScenesList;                                           // A list of scenes for building
@@ -26,11 +47,11 @@ public class StoryTeller {
      * The StoryTeller will build the XML files into a list
      * and initialize into the actual game 
     */
-    public StoryTeller() {
+/*    public StoryTeller() {
         this.ParseXML();                                                        // This parses the XML file into a list of a story
         // Parse the tree that is loaded from the XML file
         
-        for (Story Story : m_StoryBranches)
+        /*for (Story Story : m_StoryBranches)
         {
             m_StoryBoard = new JPanel(new CardLayout());                        // Init the main card layout
             m_Scenes = new JPanel(new CardLayout());                            // Init the secondary card layout
@@ -41,13 +62,13 @@ public class StoryTeller {
             for (Chapter Chapter : m_ChaptersList)
             {
                 //m_ScenesList = m_ChaptersList.get(m_ChapterCount).getScenes();  // This will copy the scenes from each chapter
-                m_ScenesList = Chapter.getScenes();
+               m_ScenesList = Chapter.getScenes();
                 //for (m_SceneCount = 0; m_SceneCount < m_ScenesList.size(); m_SceneCount++)  // Iterate through the list
-                for (Scene Scene: m_ScenesList)
+               for (Scene Scene: m_ScenesList)
                 {   
                     m_Scenes.add(Scene.GetPanel());    // Add the panels to the scenes panel
-                }
-            }
+               }
+           }*/
             /* 
             *  StoryBoard -> Items
             *             -> Text
@@ -61,7 +82,7 @@ public class StoryTeller {
             * m_StoryBoard.add(Items, ITEMPANEL);
             * m_StoryBoard.add(m_Scenes, DISPLAYPANEL);
             */
-            m_StoryBoard.add(m_Attributes);                                     // Add the Avatar Attributes
+            /*m_StoryBoard.add(m_Attributes);                                     // Add the Avatar Attributes
             m_StoryBoard.add(m_Items);                                          // Add the Avatar Items
             m_StoryBoard.add(m_Scenes);                                         // Add the Scenes for the Story 
             if (m_Story == null)
@@ -70,7 +91,8 @@ public class StoryTeller {
                 m_Story.AddBranch(m_StoryBoard, m_Hash);
         }
     }
+    
     private void ParseXML() {
         
     }
-}
+}*/
