@@ -17,7 +17,7 @@
 	   Branchpoint=1 07  08 Branchpoint=2
 					  -->
 		<!-- Branchpoint indicates which path, 0 for no branch, 1+ for branchID -->
-		<Scene id="#" branchpoint="#">
+		<Scene id="01" branchpoint="0">
 			<!-- Give a string to the path of the background, IE: resources/path/to/file.jpg -->
 			<Background></Background>
 			<!-- Create buttons for each scene -->
